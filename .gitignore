@@ -1,0 +1,9 @@
+*.docx
+*.iml
+*.tmp
+/dialogues/
+
+# IDEA files
+/.idea/
+/out/
+/*.iml
