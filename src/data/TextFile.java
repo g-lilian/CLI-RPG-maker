@@ -28,7 +28,15 @@ public class TextFile {
     public void processFile() {
         while (scanner.hasNext()) {
             String currLine = scanner.nextLine();
-            Ui.printReply(currLine);
+            // Print in format NAME: message if [NAME] message is used in txt
+            if (currLine.startsWith("[")) {
+                int endIdx = currLine.indexOf(']');
+                String speaker = currLine.substring(1, endIdx);
+                String message = currLine.substring(endIdx+1).trim();
+                Ui.printReply(speaker + ": " + message);
+            } else {
+                Ui.printReply(currLine);
+            }
             String response = Ui.getResponse();
         }
     }
