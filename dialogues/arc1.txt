@@ -1,0 +1,209 @@
+Dialogue only (Arc 1)
+
+Scene 1: inner sanctum
+General, the preparations are complete. What are your next orders?
+You’ve done well, Quill. I’ll take care of the rest. If all goes as planned, our next meeting will be three years from now.
+Are you certain about this?
+...
+I’m sorry. Just know that I am always ready to respond to your call.
+Your duty lies here from now on. Stay and await my return. We’ll meet again in due time.
+...understood.
+
+Scene 2: camp in the plains
+Your Majesty, the enemy troops have ambushed our supply lines. Most of the grain and about half of the livestock have been lost. The situation on the front lines is dire. I’m afraid our troops may not last the next week-
+...Your Majesty?
+What of the reinforcements? The troops led by Lord Kedivar are due to arrive tomorrow.
+I have not received any news from them. I’m afraid they... I’m not sure if I should be saying this, Your Majesty, but Lord Kedivar wasn’t on the best of terms with your father. We can’t-
+Enough. I understand.
+Please order a retreat, Your Majesty. It is not in our best interests to continue.
+...
+...Your Majesty, are you alright?
+I’m fine. Return tomorrow at dawn for my decision. If there is nothing else, you may leave.
+Yes, Your Majesty.
+Is retreating the only option? There are thousands waiting in that city. I can’t give up on them. But what else can I do? What would father have done?
+***shuffling noises from outside the tent***
+Your Majesty, we found this man on the outskirts of camp. He claims to have important intelligence and requests an audience with you.
+Is that so? Bring him in.
+...
+Who may you be?
+A resident from Rindengard. I overheard enemy spies discussing methods of infiltrating the city. May I have a moment in private, Your Majesty?
+Lift your hood and face me.
+...
+Your hair...
+A peculiarity from birth. Forgive me if it startles you, Your Majesty.
+No, it’s- It’s fine. Men, stand guard outside.
+...
+So, what did you hear?
+They plan to go under the city. Five hundred meters from the city walls, there’s a secret entrance that leads straight to the fort.
+Do you know the precise location of the entrance?
+...I see you have a map. It would be easier for me to show you if I had my hands free, Your Majesty.
+...
+How am I to trust you?
+You shouldn’t have.
+...what?
+You allowed a stranger into your tent alone, with your guards out of hearing range. A trained assassin would have broken free from these binds, finished his job, and vanished into the night without a single one of your men noticing.
+You...
+Be quiet. I’m not here to hurt you.
+What do you want?
+Your army is tired, disorganized and low on supplies. You must be well aware that your men will not last another week if this continues. In fact, your best option now is to retreat your forces and cut your losses, but that will mean leaving the city’s ten thousand inhabitants helpless to the invading enemy. 
+What are you trying to say? You’re not from Rindengard. Who are you?
+As I’ve said, I’m not here to hurt you. Quite the opposite. I’m here to help you win the war.
+...Why? Our allies have all backed away upon hearing the news of my father’s death. Have they decided to come forth now that we’re at the mercy of Celadon? So, which cowardly nation are you from?
+I speak only for myself.
+Yourself? *laugh* You expect to turn this around with the strength of one man? Why, do you consider yourself some kind of messiah?
+Hardly. I’m no saviour. But I do know how to destroy. And that’s good enough for you, isn’t it?
+You come in the middle of the night, lie about having access to vital intelligence, and point a dagger at my neck. And now, you expect me to trust you?
+I apologize for the lack of courtesy. It was the best way for me to have a private conversation with you. Besides, I wasn’t lying about the entrance. It indeed exists, but has not yet been discovered by the enemy.
+I suppose you have plans for it?
+That remains to be seen.
+Why are you helping me? What do you want in exchange?
+What I seek is well within your means to provide. You see, several months ago, I became afflicted with a stubborn ailment.
+*sharp inhalation* His hands... they’re ice cold. How can a human survive with this body temperature?
+The symptoms can only be kept at bay with sufficient heat and a constant supply of medication. So my demands are simple. Warmth, lodging, and the occasional herb. That is all I ask for.
+Is that so? That was certainly not what I was expecting to hear.
+*sigh* I’m not interested in your kingdom or your throne, Your Majesty.
+How do I know that you’re not an enemy spy?
+If you choose to believe so, there is nothing I can say to convince you otherwise. However, you have but two options now. Let your people succumb to the Celadonians while you retreat to the temporary safety of the capital, or gamble with a stranger of unknown origins. I don’t envy your predicament, Queen Winoa. But you have to make your choice. What will it be?
+
+Branch 1 (ENDING 1): *raise voice* Guards! Arrest this intruder!
+That was unwise, Your Majesty. I had hoped you would choose otherwise.
+After him! Don’t let him get away!
+Your Majesty, he’s disappeared! He was there one moment, and the next, it was as if he had vanished into thin air.
+Search the camp thoroughly. He couldn’t have gone far.
+Yes, Your Majesty!
+
+Change scene: on a moonlit cliff overlooking the plains
+General, has there been a change in plans?
+Yes. Dispose of the queen and her remaining supporters among the nobility. Leave no witnesses.
+Understood. It will be done before the break of dawn.
+...!!!
+General! You’re-
+There’s no need to be concerned. In fact, this path will be much more efficient. Diplomacy complicates what should have been a simple decision.
+I was referring to-
+I’m not that fragile, Quill. Set your sight on the task at hand.
+...Yes. If there is nothing else, I shall proceed immediately.
+
+Branch 2: Very well. I accept your proposition.
+A wise decision, Queen Winoa. In return for your trust, I will give you an empire.
+An empire? That’s something I dare not covet. All I want is to protect my own people. If I can’t even do that, what right do I have to claim other territory? So tell me, is there any option besides retreat?
+***from afar*** Your Majesty, are you alright?
+Yes. This man is an ally. You may stand guard outside.
+Understood.
+This is... a map of the underground tunnels. The opening is located fairly close to our camp. And there’s a path straight to the citadel.
+That’s right. First, send a envoy through the passage to your allies within the city and inform them that reinforcements will be arriving straight to the citadel. Ensure that the message is directly handed to a trusted confidant. Tomorrow morning, you’ll sound out the orders for retreat.
+***draws on the parchment***
+Your army will head south in the general direction of the capital. Since the enemy’s target is the city, they will not bother with pursuit. After half a day, make a detour to the riverbank to replenish your water supplies. The proceed with the greatest haste to the entrance I’ve marked here. It is wide enough to allow all your forces passage within a full day.
+I see. Our chances are much more optimistic if we assist from within the city walls. However, this plan leaves us with only five days’ supply of rations, and the situation within the city isn’t ideal either. Our intelligence suggests that the enemy plans to lay siege for at least another month.
+*sighing* No matter what, this looks like a lost cause. How are we to win the battle in 5 days?
+5 days are more than enough.
+...Such arrogance. Why is he so certain that he’ll succeed?
+It’s 4 hours to daybreak. You should rest now, Your Majesty. It will be a long day ahead.
+Very well. I’ll arrange for your accommodation tonight in an adjacent tent.
+...
+Wait, before you leave. Your name?
+...
+Janus.
+Janus. I truly hope that I was right to trust you.
+
+...the section on traveling to the citadel may be omitted or is a WIP...
+
+Scene: Rindengard, on the balcony of the citadel
+The last of our men have arrived. This is great! I don’t know how long more the city could have held without reinforcements.
+**raises voice** My soldiers! Prepare to assist your comrades at the city wall. We’ll safeguard this city at all cost.
+...
+Hey, are you okay? You're... so cold. Frank, Bertol, get me a pail of hot water and blankets. Now!
+...
+We’ve brought them, Your Majesty.
+...Thank you.
+Are you better now? You were freezing. I didn’t think it was possible for a living being to be so cold...
+I’m fine.
+Is there anything else you need?
+Are the herbs ready?
+Yes, they’ve been kept in the store according to Her Majesty’s orders.
+Good. I’ll need a sample of each kind as specified on the list.
+Understood, erm... sir. If that’s all, Your Majesty...
+Return to your duties.
+*bows, the door closes*
+
+What is this ailment? I’ve never come across anything so queer.
+It’s nothing you have to be concerned about. Perhaps you should focus your attention on the coming battle.
+We’ve come this far thanks to you. But we can only hold the city for four more days at most. I doubt the Celadonians will be so foolish as to engage in a full battle with us now when they can simply wait for us to exhaust our rations. Is it really possible to turn the tides of this war?
+You’re right, we can delay no longer. Your supplies have been cut off by the enemy. It’s about time that they receive a taste of their own medicine.
+...
+I’ve brought the herbs you asked for, sir.
+What do you need these for? Do these herbs alleviate your sickness? If I recall correctly, this plant is poisonous.
+Yes.
+What? You’re not planning to...
+It’s a colorless and odorless poison. Once ingested, the victim shows no symptoms for the first five hours. After which, they suffer from internal hemorrhaging and will perish within the day.
+*grinding of herbs*
+How do you plan to get it to the Celadonians?
+That’s straightforward enough. At night, have your men scatter the powder over the city walls and let it dissolve in the morning mist. Also order them to coat their arrows in it. Army camps are not known for hygiene. When the enemy consumes food with contaminated hands, they will inadvertently ingest the poison as well.
+Are you sure this is enough? And what of our own soldiers?
+I’ll prepare the antidote. Dissolve it in the main water supply and have all your soldiers replenish themselves after the war.
+Very well, I’ll do as you ask. This is...?
+The final ingredient.
+I’ve never seen this flower before. Where did you procure it?
+It’s found only on the peaks of the Eastern mountains.
+I see that you come prepared. You’ve planned this for a long time, haven’t you? How did you come to know about such a poison?
+Will you believe me if I say that it’s for self-defense?
+Then you must have many enemies.
+...
+Fine, you don’t have to tell me all about your history and objectives. But be warned. If you betray me, I‘ll kill you even if means I have to die myself.
+I have nothing to gain by being a traitor. If you ever suspect so, it will be easy enough to dispose of me... I can barely lift a sword in my current state, much less put up a fight.
+You’re hurt that badly?
+You’ve seen for yourself.
+...Right. I suppose so. Stay here while I relay your instructions. Do not wander out of this room.
+Yes, Your Majesty.
+*the door closes, and Janus sighs*
+
+*one day later*
+You don’t look too well, Your Majesty. How is the situation?
+The poison isn’t effective enough. It’s only managed to kill about a hundred of their men. An entire quarter of their army is suffering from abdominal pains, but it doesn’t look like something they can’t recover from in a few hours. And we still remain outnumbered by the thousands.
+*accusatory tone* You were so confident of your plan. Didn’t you claim to be able to win in five days? It’s been two days and victory is nowhere in sight! I shouldn’t have put my faith in you.
+Anger never resolves anything, Your Majesty.
+...You’re right. Forgive my outburst. I’m simply worried about the battle. I was sure we had gone in the right direction by entering the city, but now it looks as though our chances are growing slimmer by the hour.
+The poison was just a scare tactic. After this morning’s incident, the Celadonians will suspect that their food supplies have been compromised. A few hours from now, more will die upon consuming the midday meal, enough to make them certain that the problem lies with their food. With their own supplies at risk, the enemy will now reconsider their decision to wait for your army’s rations to be exhausted.
+So, they’ll attack us immediately? Even so, our odds of winning are uncertain. I’m afraid they outnumber us by quite a bit.
+The Celadonians will not mobilize their full forces unless they are certain of their victory. Seeing how we entered the city without opening its gates, they have already begun to suspect the existence of a hidden passage. We will confirm their suspicions by leaking news about the location of the tunnel’s entrance.
+Your plan is to lure them inside?
+Indeed. They may not fall for the bait so easily. From now on, concentrate your forces at the city gates and make a show of preparing for battle. We want the Celadonians to believe that we’re anticipating a direct confrontation at the gates. They’ll attempt to launch a surprise attack by breaching the city via the secret passage. Once they enter, seal the entrance. We’ll make sure that they never see the light of day again.
+So this was your plan. Why didn’t you say so earlier? I wouldn’t have lost my temper if you did.
+The situation is constantly evolving, Your Majesty. In circumstances like these, it’s never wise to reveal your plans too early.
+He doesn’t trust me, just like how I don’t fully trust him either. I’m relieved that he’s on our side. He’s not an enemy that I want to reckon with.
+I’ve prepared a slightly different variant of the poison. This time, order your men to cover themselves and smear it on the tunnel walls. They must avoid bringing it into close contact with an open flame. Doing so will release highly toxic fumes at a lethal dosage that no antidote can cure.
+I see... Without this knowledge, the enemy will succumb to the poison when they bring their torches for navigation in the darkness of the passage. It’s an ingenious plan, Janus.
+We cannot afford to be careless. Seal the outer entrance now. They won’t risk clearing the barricade early if it means alerting us to their movements, so they will not be able to send scouts before mobilizing the army. They’ll have to go in blind. Besides, an overly easy bait only arouses more suspicion.
+Alright, it’ll be done.
+...
+Is there something else on your mind, Your Majesty?
+I can’t help but be concerned. What if they decide not to enter the passage? Are you confident of fending off a direct assault?
+No. I’m quite certain we’ll lose.
+! Don’t you have some kind of backup plan?
+Perhaps, usually. But I’m sure you realize that there aren’t many options available to us in our current situation.
+That’s...reassuring.
+This is war, Your Majesty. It only takes one mistake to overturn many years of progress. Backup plans always come at a cost. To win decisively, you have to aim true and cripple the enemy on your first strike.
+...
+...
+I understand. I’ll keep you updated if the situation changes.
+That will be much appreciated, Your Majesty.
+*the door closes*
+
+*the next day, the door flings open*
+We did it! Three quarters of the enemy forces have been trapped in the passage. I’ve ordered my men to finish off the remaining.
+*she laughs merrily* I can’t believe this. We won! It’s a miracle.
+...
+This is all thanks to you, Janus. The Celadonians are known for the unspeakable atrocities they commit after a successful invasion. You’ve spared thousands from a fate worse than death. I can’t thank you enough.
+There’s no need to thank me. It was part of the deal.
+I know, but you still have my deepest gratitude. I can’t see these lives simply as part of an exchange. All the families that you’ve saved today will forever be in your debt.
+What are your plans now that the battle is over?
+We’ll prepare to return to the capital, Damerel. The journey should take about a week, but we can stop to replenish supplies at the surrounding villages.
+...
+You don’t look too well. Is your ailment plaguing you again?
+It’s under control. I’m just a little tired.
+Oh, I won’t disturb you further. Do get your rest before we set off.
+*she turns as if to leave*
+And... I’m sorry for doubting you. I know I couldn’t have done this without your help.
+It’s only natural for you to doubt me. Forgive me if I haven’t been the most forthcoming. There are things I would rather remain unknown.
+Of course. Oh... and you’re free to explore the citadel if it serves your purposes. Just inform the guards if you need anything. We’ll leave Rindengard in a day. Until then, take care.
+You too, Your Majesty.
+
