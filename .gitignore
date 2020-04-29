@@ -2,6 +2,7 @@
 *.iml
 *.tmp
 /dialogues/
+/otherdata/
 
 # IDEA files
 /.idea/
