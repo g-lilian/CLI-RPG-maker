@@ -1,5 +1,6 @@
 package data;
 
+import branching.ShortBranch;
 import main.Ui;
 
 import java.io.File;
@@ -29,40 +30,48 @@ public class TextFile {
      * Go through the file line by line.
      */
     public void processFile() {
-        int displayBuffer = 1; // num of lines to process before displaying all at once
+        int displayBuffer = 1; // num of lines to display with each Enter
 
         while (scanner.hasNext()) {
-            while (displayBuffer > 0) {
-                String currLine = scanner.nextLine();
-                char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
+            processLines(displayBuffer);
 
-                switch (firstChar) {
-                case '[': // default speech with character name
-                    // Print in format NAME: message if [NAME] message is used in txt
-                    int endIdx = currLine.indexOf(']');
-                    String speaker = currLine.substring(1, endIdx);
-                    speaker = isAcronym(speaker);
-                    String message = currLine.substring(endIdx + 1).trim();
-                    Ui.printReply(speaker + ": " + message);
-                    break;
-                case '(': // a command word/phrase
-                    endIdx = currLine.indexOf(')');
-                    String keyword = currLine.substring(1, endIdx);
-                    parseKeyword(keyword);
-                    break;
-                case '<': // multi line
-                    MultiLine multiline = new MultiLine(currLine);
-                    displayBuffer = multiline.getNumToDisplay();
-                    continue;
-                default: // no special format, just print the line
-                    Ui.printReply(currLine);
-                }
-                if (displayBuffer > 1) Ui.lb(); // add line break for multiline
-                displayBuffer--;
-            }
             displayBuffer = 1;
-
             String response = Ui.getResponse(); // enter to print next line(s)
+        }
+    }
+
+    /**
+     * Processes X lines of text, where X = displayBuffer
+     */
+    public void processLines(int displayBuffer) {
+        while (displayBuffer > 0) {
+            String currLine = scanner.nextLine();
+            char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
+
+            switch (firstChar) {
+            case '[': // default speech with character name
+                // Print in format NAME: message if [NAME] message is used in txt
+                int endIdx = currLine.indexOf(']');
+                String speaker = currLine.substring(1, endIdx);
+                speaker = isAcronym(speaker);
+                String message = currLine.substring(endIdx + 1).trim();
+                Ui.printReply(speaker + ": " + message);
+                break;
+            case '(': // a command word/phrase
+                endIdx = currLine.indexOf(')');
+                String keyword = currLine.substring(1, endIdx);
+                parseKeyword(keyword);
+                break;
+            case '<': // multi line
+                MultiLine multiline = new MultiLine(currLine);
+                displayBuffer = multiline.getNumToDisplay();
+                continue;
+            default: // no special format, just print the line
+                Ui.printReply(currLine);
+            }
+
+            if (displayBuffer > 1) Ui.lb(); // add line break for multiline
+            displayBuffer--;
         }
     }
 
@@ -84,6 +93,7 @@ public class TextFile {
     private void parseKeyword(String keyword) {
         switch (keyword) {
         case "branch":
+            //ShortBranch shortbranch = new ShortBranch()
             break;
         default:
         }
