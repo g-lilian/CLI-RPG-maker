@@ -23,6 +23,10 @@ public class Ui {
         System.out.println(startMessage);
     }
 
+    public static void lb() {
+        System.out.print(System.lineSeparator());
+    }
+
     public static void printFileNotFoundError() {
         System.out.println("File not found.");
     }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class TextFile {
     private Scanner scanner;
     HashMap<String, String> speakerAcronyms;
-    File txt;
+    private File txt;
 
     public TextFile (File txt, HashMap<String, String> speakerAcronyms) {
         this.txt = txt;
@@ -29,19 +29,40 @@ public class TextFile {
      * Go through the file line by line.
      */
     public void processFile() {
+        int displayBuffer = 1; // num of lines to process before displaying all at once
+
         while (scanner.hasNext()) {
-            String currLine = scanner.nextLine();
-            // Print in format NAME: message if [NAME] message is used in txt
-            if (currLine.startsWith("[")) {
-                int endIdx = currLine.indexOf(']');
-                String speaker = currLine.substring(1, endIdx);
-                speaker = isAcronym(speaker);
-                String message = currLine.substring(endIdx+1).trim();
-                Ui.printReply(speaker + ": " + message);
-            } else {
-                Ui.printReply(currLine);
+            while (displayBuffer > 0) {
+                String currLine = scanner.nextLine();
+                char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
+
+                switch (firstChar) {
+                case '[': // default speech with character name
+                    // Print in format NAME: message if [NAME] message is used in txt
+                    int endIdx = currLine.indexOf(']');
+                    String speaker = currLine.substring(1, endIdx);
+                    speaker = isAcronym(speaker);
+                    String message = currLine.substring(endIdx + 1).trim();
+                    Ui.printReply(speaker + ": " + message);
+                    break;
+                case '(': // a command word/phrase
+                    endIdx = currLine.indexOf(')');
+                    String keyword = currLine.substring(1, endIdx);
+                    parseKeyword(keyword);
+                    break;
+                case '<': // multi line
+                    MultiLine multiline = new MultiLine(currLine);
+                    displayBuffer = multiline.getNumToDisplay();
+                    continue;
+                default: // no special format, just print the line
+                    Ui.printReply(currLine);
+                }
+                if (displayBuffer > 1) Ui.lb(); // add line break for multiline
+                displayBuffer--;
             }
-            String response = Ui.getResponse();
+            displayBuffer = 1;
+
+            String response = Ui.getResponse(); // enter to print next line(s)
         }
     }
 
@@ -54,5 +75,17 @@ public class TextFile {
         // search for the key in the hash map
         String speakerName = speakerAcronyms.get(speaker);
         return speakerName == null ? speaker : speakerName;
+    }
+
+    /**
+     * Parse the keyword surrounded by ().
+     * @param keyword to execute corresponding instructions
+     */
+    private void parseKeyword(String keyword) {
+        switch (keyword) {
+        case "branch":
+            break;
+        default:
+        }
     }
 }
