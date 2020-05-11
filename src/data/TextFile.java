@@ -12,9 +12,9 @@ import java.util.HashMap;
  * Class which interprets text files containing dialogues + branch instructions.
  */
 public class TextFile {
-    private Scanner scanner;
-    HashMap<String, String> speakerAcronyms;
-    private File txt;
+    protected Scanner scanner;
+    protected HashMap<String, String> speakerAcronyms;
+    protected File txt;
 
     public TextFile (File txt, HashMap<String, String> speakerAcronyms) {
         this.txt = txt;
@@ -43,9 +43,10 @@ public class TextFile {
     /**
      * Processes X lines of text, where X = displayBuffer
      */
-    public void processLines(int displayBuffer) {
+    protected boolean processLines(int displayBuffer) {
         while (displayBuffer > 0) {
             String currLine = scanner.nextLine();
+            if (currLine.equals("endbranch")) return true;
             char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
 
             switch (firstChar) {
@@ -58,9 +59,7 @@ public class TextFile {
                 Ui.printReply(speaker + ": " + message);
                 break;
             case '(': // a command word/phrase
-                endIdx = currLine.indexOf(')');
-                String keyword = currLine.substring(1, endIdx);
-                parseKeyword(keyword);
+                parseKeyword(currLine);
                 break;
             case '<': // multi line
                 MultiLine multiline = new MultiLine(currLine);
@@ -73,6 +72,8 @@ public class TextFile {
             if (displayBuffer > 1) Ui.lb(); // add line break for multiline
             displayBuffer--;
         }
+        // should not come here
+        return false;
     }
 
     /**
@@ -80,7 +81,7 @@ public class TextFile {
      * @param speaker name
      * @return the actual speaker name if input was an acronym
      */
-    private String isAcronym(String speaker) {
+    protected String isAcronym(String speaker) {
         // search for the key in the hash map
         String speakerName = speakerAcronyms.get(speaker);
         return speakerName == null ? speaker : speakerName;
@@ -88,12 +89,44 @@ public class TextFile {
 
     /**
      * Parse the keyword surrounded by ().
-     * @param keyword to execute corresponding instructions
+     * @param currLine to parse
      */
-    private void parseKeyword(String keyword) {
+    protected void parseKeyword(String currLine) {
+        int endIdx = currLine.indexOf(')');
+        String keyword = currLine.substring(1, endIdx);
+
         switch (keyword) {
         case "branch":
-            //ShortBranch shortbranch = new ShortBranch()
+            //ShortBranch shortbranch = new ShortBranch(txt, speakerAcronyms);
+            String[] branches = currLine.substring(endIdx+1).trim().split(" ");
+            String response = Ui.getResponse(); // get player branch response
+            int responseIdx = Ui.checkPlayerResponse(response, branches);
+            while (responseIdx == -1) { // while response is invalid
+                response = Ui.promptTryAgain();
+                responseIdx = Ui.checkPlayerResponse(response, branches);
+            }
+
+            // go to correct branch depending on response
+            String branchName = "";
+            while (!branchName.equals(response)) {
+                currLine = scanner.nextLine();
+                branchName = currLine.trim();
+            }
+
+            // process lines as usual until endbranch is read
+            boolean endBranch;
+            while (true) {
+                endBranch = processLines(1);
+                if (endBranch) break;
+                Ui.getResponse(); // enter to print next line(s)
+            }
+
+            // skip over all irrelevant lines
+            int branchesRemaining = branches.length - responseIdx - 1;
+            while (branchesRemaining > 0) {
+                currLine = scanner.nextLine();
+                if (currLine.equals("endbranch")) branchesRemaining--;
+            }
             break;
         default:
         }
