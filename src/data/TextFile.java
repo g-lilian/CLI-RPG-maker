@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.HashMap;
 
 /**
- * Class which interprets text files containing dialogues + branch instructions.
+ * Each instance of this class interprets a single text file containing dialogues + branch instructions.
  */
 public class TextFile {
     private Scanner scanner;
@@ -44,7 +44,7 @@ public class TextFile {
      * Processes X lines of text, where X = displayBuffer
      */
     public boolean processLines(int displayBuffer) {
-        while (displayBuffer > 0) {
+        while (displayBuffer > 0 && scanner.hasNext()) {
             currLine = scanner.nextLine();
             if (currLine.equals("endbranch")) return true;
             char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
