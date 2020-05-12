@@ -1,6 +1,5 @@
 package data;
 
-import branching.ShortBranch;
 import main.Ui;
 
 import java.io.File;
@@ -13,9 +12,9 @@ import java.util.HashMap;
  */
 public class TextFile {
     private Scanner scanner;
-    private HashMap<String, String> speakerAcronyms;
+    HashMap<String, String> speakerAcronyms;
     private File txt;
-    private int lineCount = 0; // the line being processed!
+    private String currLine;
 
     public TextFile (File txt, HashMap<String, String> speakerAcronyms) {
         this.txt = txt;
@@ -34,7 +33,7 @@ public class TextFile {
         int displayBuffer = 1; // num of lines to display with each Enter
 
         while (scanner.hasNext()) {
-            processLines(displayBuffer, scanner, lineCount);
+            processLines(displayBuffer);
 
             displayBuffer = 1;
             String response = Ui.getResponse(); // enter to print next line(s)
@@ -44,10 +43,9 @@ public class TextFile {
     /**
      * Processes X lines of text, where X = displayBuffer
      */
-    protected boolean processLines(int displayBuffer, Scanner scanner, int lineCount) {
+    public boolean processLines(int displayBuffer) {
         while (displayBuffer > 0) {
-            String currLine = scanner.nextLine();
-            lineCount++;
+            currLine = scanner.nextLine();
             if (currLine.equals("endbranch")) return true;
             char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
 
@@ -61,7 +59,9 @@ public class TextFile {
                 Ui.printReply(speaker + ": " + message);
                 break;
             case '(': // a command word/phrase
-                parseKeyword(currLine);
+                endIdx = currLine.indexOf(')');
+                String keyword = currLine.substring(1, endIdx);
+                parseKeyword(keyword);
                 break;
             case '<': // multi line
                 MultiLine multiline = new MultiLine(currLine);
@@ -83,7 +83,7 @@ public class TextFile {
      * @param speaker name
      * @return the actual speaker name if input was an acronym
      */
-    protected String isAcronym(String speaker) {
+    private String isAcronym(String speaker) {
         // search for the key in the hash map
         String speakerName = speakerAcronyms.get(speaker);
         return speakerName == null ? speaker : speakerName;
@@ -91,37 +91,46 @@ public class TextFile {
 
     /**
      * Parse the keyword surrounded by ().
-     * @param currLine to parse
+     * @param keyword to execute corresponding instructions
      */
-    protected void parseKeyword(String currLine) {
-        int endIdx = currLine.indexOf(')');
-        String keyword = currLine.substring(1, endIdx);
-
+    private void parseKeyword(String keyword) {
         switch (keyword) {
         case "branch": // short branching
-            ShortBranch shortbranch = new ShortBranch(txt, speakerAcronyms, currLine, lineCount);
-            // resume from the correct line
-            int branchLineCount = shortbranch.getBranchLineCount();
-            lineCount += branchLineCount;
-            scanner = scanLines(branchLineCount, scanner);
+            int endIdx = currLine.indexOf(')');
+            String[] branches = currLine.substring(endIdx+1).trim().split(" ");
+            String response = Ui.getResponse(); // get player branch response
+            int responseIdx = Ui.checkPlayerResponse(response, branches);
+            while (responseIdx == -1) { // while response is invalid
+                response = Ui.promptTryAgain();
+                responseIdx = Ui.checkPlayerResponse(response, branches);
+            }
+
+            // go to correct branch depending on response
+            String branchName = "";
+            while (!branchName.equals(response)) {
+                currLine = scanner.nextLine();
+                branchName = currLine.trim();
+            }
+
+            // process lines as usual until endbranch is read
+            boolean endBranch;
+            while (true) {
+                endBranch = processLines(1);
+                if (endBranch) break;
+                Ui.getResponse(); // enter to print next line(s)
+            }
+
+            // skip over all irrelevant lines
+            int branchesRemaining = branches.length - responseIdx - 1;
+            while (branchesRemaining > 0) {
+                currLine = scanner.nextLine();
+                if (currLine.equals("endbranch")) branchesRemaining--;
+            }
             break;
         case "goto": // long branching i.e. jump to another file
             // store line number and use goto at the end of the file to return to original file
             break;
         default:
         }
-    }
-
-    /**
-     * Used for skipping over lines.
-     * @param numLines to skip over
-     */
-    protected Scanner scanLines(int numLines, Scanner scanner) {
-        while (numLines>0) {
-            scanner.nextLine();
-            lineCount++;
-            numLines--;
-        }
-        return scanner;
     }
 }

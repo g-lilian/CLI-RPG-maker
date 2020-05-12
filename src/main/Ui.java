@@ -33,6 +33,7 @@ public class Ui {
     public static String promptTryAgain() {
         System.out.println("Invalid response. Try again.");
         String response = Ui.getResponse();
+        response = scanner.nextLine();
         return response;
     }
 
