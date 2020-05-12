@@ -4,6 +4,7 @@ import data.TextFile;
 import main.Ui;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,10 +13,19 @@ import java.util.Scanner;
  */
 public class ShortBranch extends TextFile {
     private String currLine;
+    private Scanner scanner;
+    private int lineCount;
+    private int branchLineCount = 0;
 
-    public ShortBranch(File txt, HashMap<String, String> speakerAcronyms, String currLine) {
+    public ShortBranch(File txt, HashMap<String, String> speakerAcronyms, String currLine, int lineCount) {
         super(txt, speakerAcronyms);
         this.currLine = currLine;
+        this.lineCount = lineCount;
+        try {
+            this.scanner = new Scanner(txt);
+        } catch (FileNotFoundException e) {
+            Ui.printFileNotFoundError();
+        }
         processBranch();
     }
 
@@ -32,14 +42,18 @@ public class ShortBranch extends TextFile {
         // go to correct branch depending on response
         String branchName = "";
         while (!branchName.equals(response)) {
+            // first get to the correct line of the file
+            scanner = scanLines(lineCount, scanner);
+
             currLine = scanner.nextLine();
+            branchLineCount++;
             branchName = currLine.trim();
         }
 
         // process lines as usual until endbranch is read
         boolean endBranch;
         while (true) {
-            endBranch = processLines(1);
+            endBranch = processLines(1, scanner, lineCount + branchLineCount);
             if (endBranch) break;
             Ui.getResponse(); // enter to print next line(s)
         }
@@ -48,11 +62,10 @@ public class ShortBranch extends TextFile {
         int branchesRemaining = branches.length - responseIdx - 1;
         while (branchesRemaining > 0) {
             currLine = scanner.nextLine();
+            branchLineCount++;
             if (currLine.equals("endbranch")) branchesRemaining--;
         }
     }
 
-    public Scanner updateScanner() {
-        return scanner;
-    }
+    public int getBranchLineCount() { return branchLineCount; }
 }

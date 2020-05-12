@@ -12,9 +12,10 @@ import java.util.HashMap;
  * Class which interprets text files containing dialogues + branch instructions.
  */
 public class TextFile {
-    protected Scanner scanner;
-    protected HashMap<String, String> speakerAcronyms;
-    protected File txt;
+    private Scanner scanner;
+    private HashMap<String, String> speakerAcronyms;
+    private File txt;
+    private int lineCount = 0; // the line being processed!
 
     public TextFile (File txt, HashMap<String, String> speakerAcronyms) {
         this.txt = txt;
@@ -33,7 +34,7 @@ public class TextFile {
         int displayBuffer = 1; // num of lines to display with each Enter
 
         while (scanner.hasNext()) {
-            processLines(displayBuffer);
+            processLines(displayBuffer, scanner, lineCount);
 
             displayBuffer = 1;
             String response = Ui.getResponse(); // enter to print next line(s)
@@ -43,9 +44,10 @@ public class TextFile {
     /**
      * Processes X lines of text, where X = displayBuffer
      */
-    protected boolean processLines(int displayBuffer) {
+    protected boolean processLines(int displayBuffer, Scanner scanner, int lineCount) {
         while (displayBuffer > 0) {
             String currLine = scanner.nextLine();
+            lineCount++;
             if (currLine.equals("endbranch")) return true;
             char firstChar = currLine.length() != 0 ? currLine.charAt(0) : '0';
 
@@ -96,11 +98,30 @@ public class TextFile {
         String keyword = currLine.substring(1, endIdx);
 
         switch (keyword) {
-        case "branch":
-            ShortBranch shortbranch = new ShortBranch(txt, speakerAcronyms, currLine);
-            scanner = shortbranch.updateScanner(); // have to update the file pointer!
+        case "branch": // short branching
+            ShortBranch shortbranch = new ShortBranch(txt, speakerAcronyms, currLine, lineCount);
+            // resume from the correct line
+            int branchLineCount = shortbranch.getBranchLineCount();
+            lineCount += branchLineCount;
+            scanner = scanLines(branchLineCount, scanner);
+            break;
+        case "goto": // long branching i.e. jump to another file
+            // store line number and use goto at the end of the file to return to original file
             break;
         default:
         }
+    }
+
+    /**
+     * Used for skipping over lines.
+     * @param numLines to skip over
+     */
+    protected Scanner scanLines(int numLines, Scanner scanner) {
+        while (numLines>0) {
+            scanner.nextLine();
+            lineCount++;
+            numLines--;
+        }
+        return scanner;
     }
 }
