@@ -79,24 +79,13 @@ public class TextFile {
     }
 
     /**
-     * Checks if the speaker name is an acronym.
-     * @param speaker name
-     * @return the actual speaker name if input was an acronym
-     */
-    private String isAcronym(String speaker) {
-        // search for the key in the hash map
-        String speakerName = speakerAcronyms.get(speaker);
-        return speakerName == null ? speaker : speakerName;
-    }
-
-    /**
      * Parse the keyword surrounded by ().
      * @param keyword to execute corresponding instructions
      */
     private void parseKeyword(String keyword) {
+        int endIdx = currLine.indexOf(')');
         switch (keyword) {
         case "branch": // short branching
-            int endIdx = currLine.indexOf(')');
             String[] branches = currLine.substring(endIdx+1).trim().split(" ");
             String response = Ui.getResponse(); // get player branch response
             int responseIdx = Ui.checkPlayerResponse(response, branches);
@@ -128,9 +117,23 @@ public class TextFile {
             }
             break;
         case "goto": // long branching i.e. jump to another file
-            // store line number and use goto at the end of the file to return to original file
+            String branchFileName = currLine.substring(endIdx+1).trim();
+            File branchFile = FileReader.loadFile("./dialogues/" + branchFileName + ".txt");
+            TextFile longBranch = new TextFile(branchFile, speakerAcronyms);
+            longBranch.processFile();
             break;
         default:
         }
+    }
+
+    /**
+     * Checks if the speaker name is an acronym.
+     * @param speaker name
+     * @return the actual speaker name if input was an acronym
+     */
+    private String isAcronym(String speaker) {
+        // search for the key in the hash map
+        String speakerName = speakerAcronyms.get(speaker);
+        return speakerName == null ? speaker : speakerName;
     }
 }
