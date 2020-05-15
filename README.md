@@ -25,9 +25,9 @@ character B: I am fine. What about you?
 
 ### Saving speaker acronyms
 This feature allows parsing of commonly used character names in an abbreviated form.
-•	User can store commonly used character names in a separate file and map them to a single character (A,B,C,...) or a shortened acronym
-•	This is to save typing time when scripting the dialogues
-•	Also, in case a character’s name is changed, the user does not need to manually replace all the fields in all the text files
+-	User can store commonly used character names in a separate file and map them to a single character (A,B,C,...) or a shortened acronym
+- This is to save typing time when scripting the dialogues
+- Also, in case a character’s name is changed, the user does not need to manually replace all the fields in all the text files
 
 To use acronyms, modify the constant file path in Main.java to the .txt file containing speaker acronyms.
 
@@ -89,7 +89,8 @@ Example txt format:
 This causes the program to start reading branch1.txt. When it reaches the end of the file, it will return to the original file and 
 continue reading from where it left off.
 
-Work-in-progress:
+
+#### Work-in-progress:
 - Chapter selection menu
 - Loading and saving game progress
 - Start menu
