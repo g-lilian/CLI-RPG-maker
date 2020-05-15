@@ -11,6 +11,7 @@ Modify the constant file path in Main.java to reflect the appropriate text file 
 When the application starts, the program reads the file line by line, displaying the next line when the user presses `Enter`/`Return`.
 
 You can prefix each line with a character's name to indicate the speaker of a line of dialogue.
+
 Example txt format:
 ```
 [character A] Hello. How are you?
@@ -29,6 +30,7 @@ This feature allows parsing of commonly used character names in an abbreviated f
 •	Also, in case a character’s name is changed, the user does not need to manually replace all the fields in all the text files
 
 To use acronyms, modify the constant file path in Main.java to the .txt file containing speaker acronyms.
+
 The acronyms should be in the following format:
 ```
 A:Alice
@@ -38,6 +40,7 @@ Then, whenever [A] and [B] are used in the file dialogues, the program will inst
 
 ### Multi-line text
 To display multiple lines at once, indicate <lines to display at once> in a separate line above the lines to be displayed.
+
 Example txt format:
 ```
 <2>
@@ -52,7 +55,9 @@ line 2
 
 ### Branching
 To branch to different lines in the txt file based on the collected user response, use the following format in the .txt file:
+
 `(branch) choice_1 choice_2 choice_3 ...`
+
 Example txt format:
 ```
 (branch) yes no
@@ -76,6 +81,7 @@ Note: as of now, choices have to be single words separated by a single whitespac
 
 ### Jumping to another file
 If a choice results in a big branch, you can store the branch in another text file, and make the program jump to that file.
+
 Example txt format:
 ```
 (goto) branch1
