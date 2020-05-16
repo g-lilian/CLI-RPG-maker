@@ -1,4 +1,4 @@
-package data;
+package fileprocessing;
 
 /**
  * Allows displaying multiple lines at once

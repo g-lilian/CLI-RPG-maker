@@ -1,4 +1,4 @@
-package data;
+package fileprocessing;
 
 import main.Ui;
 
@@ -43,7 +43,7 @@ public class TextFile {
     /**
      * Processes X lines of text, where X = displayBuffer
      */
-    public boolean processLines(int displayBuffer) {
+    private boolean processLines(int displayBuffer) {
         while (displayBuffer > 0 && scanner.hasNext()) {
             currLine = scanner.nextLine();
             if (currLine.equals("endbranch")) return true;

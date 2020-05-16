@@ -1,5 +1,9 @@
 package main;
 
+import javafx.util.Pair;
+
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -37,10 +41,38 @@ public class Ui {
     }
 
     public static void printStartMessage() {
-        String startMessage = "The story begins now." + System.lineSeparator();
+        String startMessage = "Welcome to CLI RPG Maker." + System.lineSeparator();
         System.out.println(startMessage);
     }
 
+
+    /** CHAPTER SELECTION */
+    public static void printChapterSelectMenu(List<Pair<String, String>> chapters) {
+        int chapterNum = 1;
+        System.out.println("Chapter selection: ");
+        for (Pair<String, String> chapter : chapters) {
+            String chapterName = chapter.getKey();
+            System.out.println(chapterNum + " - " + chapterName);
+            chapterNum++;
+        }
+        lb();
+    }
+
+    public static String getChapterSelection() {
+        System.out.println("Select a chapter to start from: ");
+        return getResponse();
+    }
+
+    public static void printInvalidChapterError() {
+        System.out.println("Invalid chapter. Please try again.");
+    }
+
+    public static void printChapterLoadMessage(String chapterName) {
+        System.out.println("Loading chapter: " + chapterName + "...");
+    }
+
+
+    /** OTHERS */
     public static void lb() {
         System.out.print(System.lineSeparator());
     }
